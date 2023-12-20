@@ -28,12 +28,9 @@ def alarm(alarm_time):
         alarm_ring_time = datetime.datetime.strptime(alarm_time,"%H:%M:%S" )
 
         current_time = datetime.datetime.strptime(now, "%H:%M:%S")
-        remaining = alarm_ring_time - current_time
+        remaining_time = alarm_ring_time - current_time
         print(CLEAR)
-        print(f"{CLEAR_AND_RETURN}Now: {current_time}")
-        print(f"Alarm Time: {alarm_ring_time}")
-        remaining_time = remaining.time()
-        print(f"Remaining Time: {remaining_time}")
+        print(f"{CLEAR_AND_RETURN}Now: {current_time}alarm, Alarm Time: {alarm_ring_time}, Remaining Time: {remaining_time}")
 
         current_time = current_time.replace(microsecond=0)
         alarm_ring_time = alarm_ring_time.replace(microsecond=0)

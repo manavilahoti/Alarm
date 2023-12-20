@@ -4,7 +4,7 @@ import datetime
 
 CLEAR = "\033[2J"
 CLEAR_AND_RETURN = "\033[H"
-option = input("Would you like to set an alarm of timer ")
+option = input("Would you like to set an alarm or timer ")
 def timer(second):
     time_elapsed = 0
 
@@ -31,7 +31,7 @@ def alarm(alarm_time):
         remaining_time = alarm_ring_time - current_time
 
         print(CLEAR)
-        print(f"{CLEAR_AND_RETURN}Now: {now}, Alarm Time: {alarm_time}, Remaining Time: {remaining_time}")
+        print(f"{CLEAR_AND_RETURN}Now: {current_time}, Alarm Time: {alarm_time}, Remaining Time: {remaining_time}")
 
         current_time = current_time.replace(microsecond=0)
         alarm_ring_time = alarm_ring_time.replace(microsecond=0)

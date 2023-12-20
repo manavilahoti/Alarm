@@ -24,26 +24,28 @@ def timer(second):
 
 def alarm(alarm_time):
     while True:
-        now = datetime.datetime.now().strftime("%H:%M:%S")
-        alarm_ring_time = datetime.datetime.strptime(alarm_time,"%H:%M:%S" )
+        now = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+        alarm_ring_time = datetime.datetime.strptime(alarm_time, "%m/%d/%Y, %H:%M:%S")
 
-        current_time = datetime.datetime.strptime(now, "%H:%M:%S")
+        current_time = datetime.datetime.strptime(now, "%m/%d/%Y, %H:%M:%S")
         remaining_time = alarm_ring_time - current_time
+
         print(CLEAR)
-        print(f"{CLEAR_AND_RETURN}Now: {current_time}alarm, Alarm Time: {alarm_ring_time}, Remaining Time: {remaining_time}")
+        print(f"{CLEAR_AND_RETURN}Now: {now}, Alarm Time: {alarm_time}, Remaining Time: {remaining_time}")
 
         current_time = current_time.replace(microsecond=0)
         alarm_ring_time = alarm_ring_time.replace(microsecond=0)
-        
-        if (now == alarm_time):
+
+        if now == alarm_time:
             time.sleep(1)
             playsound.playsound("alarm_sound.mp3")
             break
 
         time.sleep(1)
+
    
 if(option.lower() == "timer"):
-    user_input = (input("Enter the time to wait (HH:MM:SS)\n "))
+    user_input = (input("Enter the time to wait ( HH:MM:SS)\n "))
     hours = int(user_input[0:2])
     minutes = int(user_input[3:5])
     seconds = int(user_input[6:])
@@ -53,5 +55,5 @@ if(option.lower() == "timer"):
 
 elif(option.lower() == "alarm"):
 
-    alarm_time = input("Enter the time for the alarm to be set at (HH:MM:SS) ")
+    alarm_time = input("Enter the time for the alarm to be set at (mm/dd/yyyy, HH:MM:SS) ")
     alarm(alarm_time)

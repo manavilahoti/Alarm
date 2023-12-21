@@ -18,7 +18,7 @@ def timer(second):
         minutes_left = time_left // 60
         second_left = time_left % 60
         
-        print(f"{CLEAR_AND_RETURN}Alarm will sound in {hours_left:02d}:{minutes_left:02d}:{second_left:02d}")
+        print(f"{CLEAR_AND_RETURN}Timer in ring in {hours_left:02d}:{minutes_left:02d}:{second_left:02d}")
     playsound.playsound("alarm_sound.mp3")
 
 
